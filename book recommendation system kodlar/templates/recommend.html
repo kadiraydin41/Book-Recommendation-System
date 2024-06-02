@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+
+</head>
+<body>
+
+ <nav class="navbar" >
+        <p class="title">My Book Recommender</p>
+        <ul class="navbar-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+<h1 class="card-title">Recommend Books</h1>
+
+ <form action="/recommend_books" method="post">
+     <input name="user_input" type="text">
+     <input type="submit">
+ </form>
+
+
+
+
+
+
+<div id="recommend-container">
+
+
+ {% if data %}
+
+    {% for i in data %}
+          <div class="container">
+
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{i[2]}}" alt="image">
+                    <h2>{{i[0]}}</h2>
+                    <h4>{{i[1]}}</h4>
+                </div>
+            </div>
+         </div>
+    {% endfor %}
+
+ {% endif %}
+    </div>
+
+
+
+
+
+
+</body>
+</html>

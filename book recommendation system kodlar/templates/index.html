@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <p class="title">My Book Recommender</p>
+        <ul class="navbar-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="recommend">Recommend</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+<h1 class="card-title">TOP 50 BOOKS</h1>
+<div class="container">
+
+
+   {% for i in range(book_name | length) %}
+
+        <div class="card">
+            <div class="card-body">
+                <img src="{{image[i]}}" alt="">
+                <h2>{{book_name[i]}}</h2>
+                <h4>{{author[i]}}</h4>
+                <h4>Votes - {{votes[i]}}</h4>
+                <h4>Rating - {{rating[i]}}</h4>
+            </div>
+        </div>
+    {% endfor %}
+
+
+</div>
+
+
+
+</body>
+</html>
